@@ -25,7 +25,7 @@ type dataindex struct {
 }
 
 func main() {
-	port := 8080 //web service akan dijalankan pada port 8080
+	port := 8122 //web service akan dijalankan pada port 8080
 	http.HandleFunc("/datapenerbangan/", func(w http.ResponseWriter, r *http.Request) {
 		switch r.Method {
 			case "GET":
@@ -47,7 +47,7 @@ func main() {
 
 
 func GetDataPenerbangan(w http.ResponseWriter, r *http.Request) {
-	db, err := sql.Open("mysql", "root:@tcp(127.0.0.1:3306)/data_penerbangan")
+	db, err := sql.Open("mysql", "root:@tcp(167.205.67.251:3306)/data_penerbangan")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -73,7 +73,7 @@ func GetDataPenerbangan(w http.ResponseWriter, r *http.Request) {
 }
 
 func GetIndexDesc(w http.ResponseWriter, r *http.Request) {
-	db, err := sql.Open("mysql", "root:@tcp(127.0.0.1:3306)/data_penerbangan")
+	db, err := sql.Open("mysql", "root:@tcp(167.205.67.251:3306)/data_penerbangan")
 	if err != nil {
 		log.Fatal(err)
 	}
